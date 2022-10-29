@@ -7,15 +7,27 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * Factory class of a criteria validator
+ */
 public class ValueValidatorFactory {
     private static final ValueValidatorFactory instance = new ValueValidatorFactory();
 
     private final Map<List<String>, ValueValidator> validators = new HashMap<List<String>, ValueValidator>();
 
+    /**
+     * Gets the instance of a factory
+     * @return instance of a factory
+     */
     public static ValueValidatorFactory getInstance(){
         return instance;
     }
 
+    /**
+     * Gets the correct validator for a specific search criteria
+     * @param searchCriteria search criteria to get validator for
+     * @return validator for croteria or null if criteria is invalid
+     */
     public ValueValidator getValidator(String searchCriteria){
 
         for (var entry: validators.entrySet()){
@@ -28,6 +40,9 @@ public class ValueValidatorFactory {
         return null;
     }
 
+    /**
+     * Instantiates a map of search criteria to allowed search type and value validator
+     */
     private ValueValidatorFactory(){
 
         // Integer parameters

@@ -2,6 +2,9 @@ package by.tc.task01.entity;
 
 import by.tc.task01.entity.criteria.SearchCriteria;
 
+/**
+ * Represents the laptop appliance
+ */
 public class Laptop extends Appliance{
 
     public double batteryCapacity;
@@ -23,9 +26,19 @@ public class Laptop extends Appliance{
                 batteryCapacity, os, memoryRom, systemMemory, cpu, displayInchs);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public boolean mathches(String key, Object value) {
-        return false;
+        return switch (SearchCriteria.Laptop.valueOf(key)){
+            case BATTERY_CAPACITY -> batteryCapacity == Double.parseDouble(String.valueOf(value));
+            case OS -> os.equals(value);
+            case MEMORY_ROM -> memoryRom == (Integer)value;
+            case SYSTEM_MEMORY -> systemMemory == (Integer)value;
+            case CPU -> cpu == Double.parseDouble(String.valueOf(value));
+            case DISPLAY_INCHS -> displayInchs == (Integer)value;
+        };
     }
-
+    // you may add your own code here
 }

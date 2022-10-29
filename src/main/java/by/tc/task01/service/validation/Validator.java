@@ -5,8 +5,16 @@ import by.tc.task01.entity.criteria.Criteria;
 import javax.script.ScriptEngine;
 import java.util.Map;
 
+/**
+ * Validator class for single criteria
+ */
 public class Validator {
-	
+
+	/**
+	 * Validates the criteria by its search criteria
+	 * @param criteria criteria to validate
+	 * @return true of criteria is valid, else - false
+	 */
 	public static boolean criteriaValidator(Criteria criteria) {
 
 		if (criteria == null || criteria.getSearchCriteria() == null)

@@ -2,7 +2,14 @@ package by.tc.task01.service.validation.validators;
 
 import by.tc.task01.service.validation.ValueValidator;
 
+/**
+ * Implements simple value validator for range type
+ */
 public class RangeValidator implements ValueValidator {
+
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public boolean validate(Object obj) {
         try{
